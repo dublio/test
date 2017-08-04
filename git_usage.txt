@@ -1,0 +1,35 @@
+git format-patch:
+
+1.for the latest one commit
+git format-patch \
+--to=abc@abc.com \
+--cc=abc@abc.com \
+-o patch \
+-1
+
+2.for V1, V2, V3 ...
+git format-patch \
+--to=abc@abc.com,bcd@abc.com,efg@abc.com \
+--cc=abc@abc.com,bbb@efg.com \
+-o patch \
+-v $1 \
+-1
+
+3.For multiple commit from least one
+git format-patch \
+--to=abc@abc.com, \
+--cc=abc@abc.com \
+-o patch \
+-$1 \
+--thread \
+--cover-letter
+
+4.for mutiple commits start from specific commit id
+git format-patch \
+--to=abc@abc.com, \
+--cc=abc@abc.com \
+-o patch \
+-$1 \
+--thread \
+--cover-letter \
+26c5cebfdb6
